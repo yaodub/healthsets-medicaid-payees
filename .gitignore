@@ -1,0 +1,7 @@
+node_modules/
+dist/
+public/data/
+!public/extensions/
+npm-install.log
+.env
+.DS_Store

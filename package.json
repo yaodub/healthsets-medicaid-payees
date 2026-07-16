@@ -1,0 +1,29 @@
+{
+  "name": "healthsets-medicaid-payees",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "sync-data": "node scripts/sync-data.mjs",
+    "build:release": "node scripts/check-release.mjs && tsc --noEmit && vite build",
+    "e2e": "python3 e2e/verify_walk.py"
+  },
+  "dependencies": {
+    "@duckdb/duckdb-wasm": "^1.29.0",
+    "preact": "^10.24.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.9.0",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0"
+  },
+  "description": "Who does Medicaid pay? An interactive, self-verifying analysis of US Medicaid payment records, 2018-2024. Part of healthsets.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yaodub/healthsets-medicaid-payees"
+  }
+}

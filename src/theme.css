@@ -1,0 +1,132 @@
+/* Museum theme: one story, big artifacts, quiet corridors. */
+:root {
+  --paper:#F2F4F0; --card:#FFFFFF; --ink:#1C2420; --muted:#5A665F; --line:#D9DFD8;
+  --care:#0F7A5C; --care-soft:#0F7A5C22; --med:#4A5B94; --med-soft:#4A5B9422;
+  --amber:#B86E00; --amber-soft:#B86E0018; --hatch:#C9CFC8; --violet:#7A4E8F; --violet-soft:#7A4E8F22;
+  --shadow:0 1px 2px rgba(28,36,32,.06),0 8px 24px rgba(28,36,32,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:#101513; --card:#182019; --ink:#E9EDE8; --muted:#95A29A; --line:#2A332D;
+    --care:#41C29A; --care-soft:#41C29A22; --med:#93A5DE; --med-soft:#93A5DE22;
+    --amber:#E0A34E; --amber-soft:#E0A34E1C; --hatch:#39423B; --violet:#C39BD6; --violet-soft:#C39BD622;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 10px 28px rgba(0,0,0,.35);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+.brand {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .95em;
+  font-weight: 700; letter-spacing: .01em;
+  border-bottom: 2px solid var(--care); padding-bottom: 1px;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+section { padding: 56px 0; }
+h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.12; letter-spacing: -.02em; }
+h2 { font-size: clamp(22px, 3.6vw, 30px); line-height: 1.2; letter-spacing: -.01em; margin-bottom: 12px; }
+p { margin: 10px 0; }
+a { color: var(--care); }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+.stamp { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+.eyebrow {
+  font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--care); margin-bottom: 10px;
+}
+.placard { font-size: 14px; color: var(--muted); max-width: 620px; }
+.loading { color: var(--muted); padding: 30px 0; }
+
+/* buttons / chips */
+.btn {
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 999px;
+  padding: 9px 15px; font-size: 14px; transition: all .15s;
+}
+.btn:hover { border-color: var(--care); }
+.btn.sel { background: var(--care); border-color: var(--care); color: var(--paper); }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px;
+  border-radius: 999px; padding: 2px 10px; background: var(--card); border: 1px solid var(--line);
+}
+.dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+/* Act I: the countdown */
+.step { min-height: 46vh; display: flex; align-items: center; }
+.step-inner { width: 100%; }
+.step .rankno {
+  font-size: clamp(56px, 11vw, 96px); font-weight: 800; letter-spacing: -.04em;
+  color: var(--hatch); line-height: 1;
+}
+.step.on .rankno { transition: color .6s .2s; }
+.barTrack { background: var(--card); border: 1px solid var(--line); border-radius: 8px; height: 44px; overflow: hidden; margin: 14px 0 10px; }
+.barFill { height: 100%; width: 0; border-radius: 8px; transition: width 1s cubic-bezier(.2,.7,.2,1) .15s; }
+.step .who { font-size: clamp(19px, 3vw, 25px); font-weight: 700; opacity: 0; transform: translateY(6px); }
+.step.on .who { opacity: 1; transform: none; transition: all .5s .55s; }
+.step .story { font-size: 15.5px; color: var(--muted); opacity: 0; max-width: 560px; }
+.step.on .story { opacity: 1; transition: opacity .5s .8s; }
+
+.aside {
+  background: var(--card); border-left: 4px solid var(--amber); border-radius: 0 10px 10px 0;
+  box-shadow: var(--shadow); padding: 22px 24px; margin: 40px 0; max-width: 620px;
+}
+.aside h3 { font-size: 17px; margin-bottom: 6px; }
+.aside p { font-size: 14.5px; color: var(--muted); margin: 6px 0 0; }
+
+/* the receipt, under glass */
+.receipt {
+  background: var(--card); max-width: 400px; margin: 26px auto; padding: 26px 24px 34px;
+  box-shadow: var(--shadow); border: 1px solid var(--line);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px;
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 14px), transparent);
+          mask-image: linear-gradient(to bottom, black calc(100% - 14px), transparent);
+}
+.receipt .rhead { text-align: center; letter-spacing: .1em; margin-bottom: 14px; }
+.receipt .rline { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-bottom: 1px dashed var(--line); }
+.receipt .rtotal { display: flex; justify-content: space-between; font-weight: 700; padding-top: 10px; }
+
+/* Act II: the crown strip */
+.crown-strip { display: block; width: 100%; }
+.crown-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; }
+
+/* exhibits (generic framed artifact) */
+.exhibit {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: var(--shadow); padding: 18px 20px; margin-top: 18px;
+}
+.exhibit-tag {
+  display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  font-size: 11px; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px;
+}
+
+/* Act IV: the state card */
+.dossier {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow);
+  padding: 24px; margin-top: 18px;
+}
+.dossier .big { font-size: clamp(26px, 5vw, 36px); font-weight: 800; letter-spacing: -.02em; }
+.dossier .row { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+.dossier .row:last-child { border-bottom: none; }
+.statemap rect { cursor: pointer; transition: opacity .15s; }
+.statemap rect:hover { opacity: .75; }
+.statemap text { pointer-events: none; }
+
+/* gift shop */
+input.search {
+  width: 100%; font: inherit; background: var(--card); color: var(--ink);
+  border: 1.5px solid var(--line); border-radius: 10px; padding: 11px 14px;
+}
+textarea.sql {
+  width: 100%; min-height: 84px; font-family: ui-monospace, Menlo, monospace; font-size: 13px;
+  background: var(--card); color: var(--ink); border: 1.5px solid var(--line); border-radius: 10px; padding: 10px;
+}
+table.out { border-collapse: collapse; width: 100%; font-size: 13px; margin-top: 10px; display: block; overflow-x: auto; }
+table.out th, table.out td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; white-space: nowrap; }
+
+footer { text-align: center; padding: 34px 0 44px; color: var(--muted); font-size: 12px; }
+.quiet { border-top: 1px solid var(--line); background: var(--card); }
