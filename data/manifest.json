@@ -1,0 +1,266 @@
+{
+  "dataset": "healthsets-medicaid-payees",
+  "data_release": "data-v0.1.0",
+  "source_vintage": "2026-02-09",
+  "generated": "2026-07-17",
+  "publishable": true,
+  "tables": {
+    "crossover_bases": {
+      "rows": 21,
+      "sha256": "25433bb9ea3f856a25313b84a204a10cf8a75629abd77d5258ff8049343794d5"
+    },
+    "about_the_file": {
+      "rows": 1,
+      "sha256": "4499352938b87b215b16ead23f8857b57413c8ef376940593551f430699e7049"
+    },
+    "care_components": {
+      "rows": 56,
+      "sha256": "6522720c27ce86cdc100a123592f21d16157891e997d37f49f73c700af0ad335"
+    },
+    "category_state_year": {
+      "rows": 2276,
+      "sha256": "5853a76c115cd37e7f2cb4d9c4fe425bad48081c7a9e3517bb00450aac09cb61"
+    },
+    "hcbs_code_yearbook": {
+      "rows": 426,
+      "sha256": "19c25514cad68d5bbb8350e0bf7a6d1bdefe7433760cce382ee4a5872298f256"
+    },
+    "fi_provider_year": {
+      "rows": 243,
+      "sha256": "9fe6d3a2868d087bd5d6ec18ce10058017765382cafd6155b147526cdf19670c"
+    },
+    "provider_table": {
+      "rows": 41408,
+      "sha256": "7af610e8402ee17c98a61ed28c97fd31fcdbc876cd292aafb7444c10e2d062af"
+    },
+    "county_year": {
+      "rows": 38481,
+      "sha256": "3cad2ef1323b342c4d763708a2d9f3d458886be2ba565f34a83104e9c0c07c88"
+    },
+    "county_reference": {
+      "rows": 3115,
+      "sha256": "6da6a27d8015f5df2285fd5c1dc1f539a786d8118faac6f05ade7fb3111bf12a"
+    },
+    "zip_county": {
+      "rows": 33789,
+      "sha256": "0d8d0aa8b0fadfba6083b92ed48c5b6a3ae539a0224806d76995fe19de68ec25"
+    },
+    "state_code_year": {
+      "rows": 5496,
+      "sha256": "d54395127a4db39da8be1022450fa88abfb373aeea54592fdfa65a16590f0dc8"
+    },
+    "org_breadth_year": {
+      "rows": 28,
+      "sha256": "d7834880ac0f5efa352fdd124cdde2f0b7159774845bb89abe27226d569d0b47"
+    },
+    "component_bridges": {
+      "rows": 10,
+      "sha256": "c359a4f10482e1a15d3c28f73a20c5628252f4fed9096fd47c7704f87b641991"
+    },
+    "org_segments": {
+      "rows": 6,
+      "sha256": "b5ae2bf4ac58a874e3955e1bc0b4892797c9a820e2ba2dcf4c6200c82c95912e"
+    },
+    "medical_month": {
+      "rows": 84,
+      "sha256": "0b64eefc746128ed8fc89da4e11e4d65b3c766fdda8b14580649b9b64e53fc19"
+    },
+    "code_month": {
+      "rows": 4972,
+      "sha256": "ac1c96ec12570adfab4f28c9e01c210f45ea52d62da6ccf919cbdf3b7174c5b6"
+    },
+    "firm_code_year": {
+      "rows": 1148,
+      "sha256": "d15b25c6937e294dafa703848e0447e400b40e923fe41a7f00ff2e719b816426"
+    },
+    "state_provenance": {
+      "rows": 50,
+      "sha256": "57e32aa80920cc48a9b5cdeccc9cb657c6e348e5e7c6b9214b64367f66827c82"
+    },
+    "provider_year": {
+      "rows": 174995,
+      "sha256": "332f13ee02cdb4cd7708f99eeec29b2af83ada5dda01999078d8acf05d3f1325"
+    },
+    "who_leaderboard": {
+      "rows": 25,
+      "sha256": "c604a4c93ce988b8f2a85289dcb99169728ad8f3a1b21b58405cb3fa0c2cea18"
+    },
+    "who_leaderboard_lens": {
+      "rows": 10,
+      "sha256": "28400856121d4c505a4a4788ccd698ee955c9ca17c761962d5a83df796b99f6d"
+    },
+    "who_race_monthly": {
+      "rows": 1008,
+      "sha256": "1ecb16bfacde0a0dee019e3c5235936e2a9eac68da04db96edaa1e65efa8b370"
+    },
+    "curiosities": {
+      "rows": 8,
+      "sha256": "b0f2d99369ff1c3ac15bfbec93930377f1d1add355448ddf535e3c48e2b6e9ca"
+    },
+    "who_xwalk": {
+      "rows": 617124,
+      "sha256": "5dd5e64108ec1a68199d52964400244a01151f2452e83a321a0895b81ae102ba"
+    },
+    "school_calendar": {
+      "rows": 12,
+      "sha256": "3b6fc341fae9c848de69cca6673c8b2185bedb0e7c4e08eeb61a476b9e01b033"
+    },
+    "slice_rowlevel": {
+      "rows": 3007172,
+      "sha256": "c9fcae9d1554992c7b59f0f46584341c9a8466409a434c585dcd25dc6548a4e5"
+    }
+  },
+  "definitions": {
+    "is_clean": "NOT (flag_extreme_paid OR flag_bad_billing_npi OR flag_bad_servicing_npi OR flag_no_npi OR flag_nonstandard_hcpcs OR flag_negative_paid)",
+    "hcbs_strict": "HCPCS_CODE IN ('T1019','T1020','S5125','S5126','S5130','S5131',\n  'S5100','S5101','S5102','S5105','S5140','S5150','S5151',\n  'T1000','T1001','T1002','T1003','T1004','T1005','S9122','S9123','S9124','G0156')\n  OR HCPCS_CODE BETWEEN 'T2016' AND 'T2036'",
+    "hcbs_broad": "HCPCS_CODE IN ('T1019','T1020','S5125','S5126','S5130','S5131',\n  'S5100','S5101','S5102','S5105','S5140','S5150','S5151',\n  'T1000','T1001','T1002','T1003','T1004','T1005','S9122','S9123','S9124','G0156')\n  OR HCPCS_CODE BETWEEN 'T2016' AND 'T2036' OR HCPCS_CODE IN ('H2014','H2015','H2016','H0043','H0044','S5135','S5136','S5160','S5161','S5165','S5170','T2038','H2021','H2022')",
+    "domain": "(HCPCS_CODE IN ('T1019','T1020','S5125','S5126','S5130','S5131',\n  'S5100','S5101','S5102','S5105','S5140','S5150','S5151',\n  'T1000','T1001','T1002','T1003','T1004','T1005','S9122','S9123','S9124','G0156')\n  OR HCPCS_CODE BETWEEN 'T2016' AND 'T2036' OR HCPCS_CODE IN ('H2014','H2015','H2016','H0043','H0044','S5135','S5136','S5160','S5161','S5165','S5170','T2038','H2021','H2022')) OR HCPCS_CODE = 'Z9525'",
+    "category": "CASE\n  WHEN HCPCS_CODE = 'Z9525' THEN 'california_code'\n  WHEN HCPCS_CODE IN ('T1019','T1020','S5125','S5126','S5130','S5131') THEN 'personal_care'\n  WHEN HCPCS_CODE BETWEEN 'T2016' AND 'T2036' OR HCPCS_CODE IN ('S5100','S5101','S5102','S5105','S5140','S5150','S5151') THEN 'residential_day'\n  WHEN HCPCS_CODE BETWEEN 'T1000' AND 'T1005' OR HCPCS_CODE IN ('S9122','S9123','S9124','G0156') THEN 'home_nursing'\n  WHEN HCPCS_CODE IN ('H2014','H2015','H2016','H2021','H2022') THEN 'community_support'\n  WHEN HCPCS_CODE IN ('H0043','H0044','H2023','H2025','S5135','S5136','S5160','S5161','S5165','S5170','T2038') THEN 'housing_meals'\n  WHEN regexp_matches(HCPCS_CODE, '^\\d{5}$') THEN 'medical_visits'\n  ELSE 'other'\nEND",
+    "personal_care_codes": "('T1019','T1020','S5125','S5126','S5130','S5131')",
+    "care_categories": [
+      "personal_care",
+      "residential_day",
+      "home_nursing",
+      "community_support",
+      "housing_meals",
+      "california_code"
+    ],
+    "completeness_tiers": [
+      "high (>=40% of CMS-64)",
+      "low (<20% \u2014 severe lower bound)",
+      "medium (20-40%)"
+    ],
+    "fi_residual_bucket": "other (name-matched FI)",
+    "entity_families": [
+      {
+        "family_id": "ppl",
+        "family_name": "Public Partnerships (PPL)",
+        "display_category": "caregiver-payroll company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "tempus",
+        "family_name": "Tempus Unlimited",
+        "display_category": "caregiver-payroll company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "gt_independence",
+        "family_name": "GT Independence",
+        "display_category": "caregiver-payroll company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "freedomcare",
+        "family_name": "FreedomCare",
+        "display_category": "caregiver-payroll company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "cdcn",
+        "family_name": "Consumer Direct Care Network",
+        "display_category": "caregiver-payroll company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "acumen",
+        "family_name": "Acumen Fiscal Agent",
+        "display_category": "caregiver-payroll company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "ccs_medical",
+        "family_name": "CCS Medical (DEGC Enterprises)",
+        "display_category": "medical-supply company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "gentiva_personal_care",
+        "family_name": "Gentiva Personal Care (Girling)",
+        "display_category": "home-care company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "modivcare",
+        "family_name": "ModivCare",
+        "display_category": "transport company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "moms_meals",
+        "family_name": "Mom's Meals (PurFoods)",
+        "display_category": "meals company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "zoll",
+        "family_name": "ZOLL Services",
+        "display_category": "medical-device company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "arion_care",
+        "family_name": "Arion Care Solutions",
+        "display_category": "home-care company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "mass_dds",
+        "family_name": "Massachusetts Department of Developmental Services",
+        "display_category": "government agency",
+        "needs_citation": false
+      },
+      {
+        "family_id": "quest",
+        "family_name": "Quest Diagnostics",
+        "display_category": "lab company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "fresenius",
+        "family_name": "Fresenius Medical Care",
+        "display_category": "dialysis company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "labcorp",
+        "family_name": "Labcorp",
+        "display_category": "lab company",
+        "needs_citation": false
+      },
+      {
+        "family_id": "davita",
+        "family_name": "DaVita",
+        "display_category": "dialysis company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "lincare",
+        "family_name": "Lincare",
+        "display_category": "medical-supply company",
+        "needs_citation": true
+      },
+      {
+        "family_id": "byram",
+        "family_name": "Byram Healthcare",
+        "display_category": "medical-supply company",
+        "needs_citation": true
+      }
+    ],
+    "entity_grouping": "uniform rules (PECOS associate IDs, CCN->AHRQ system, calibrated name matching) + the curated overlay in entity_families; full NPI->entity map in who_xwalk.parquet"
+  },
+  "citation_debt": 0,
+  "caveats": [
+    "Clean-FFS-visible slice of the T-MSIS-derived file (~21% of program dollars; reconciles 18-25% of CMS-64 yearly).",
+    "Managed-care encounter completeness varies by service type.",
+    "Cells under 12 claims are suppressed at the source.",
+    "2024 is claims-runout-truncated (December ~27% of run-rate).",
+    "Z9525 (CA personal care) carries no provider NPI; it appears only in crossover_bases (plus_ca) and hcbs_code_yearbook.",
+    "A claim line is not a 15-minute unit; median_paid_per_line is a rate-per-line series.",
+    "State attribution is inverse-weighted across a provider's enrolled states; per-state visibility in state_provenance.",
+    "Provider geography (zip5/county/rurality/svi) is the NPPES PRACTICE ADDRESS \u2014 it maps the caregiving industry's locations, never care delivery; multi-state organizations concentrate at HQ (check attributed_states).",
+    "state_code_year suppresses cells built from <25 rows; median_paid_per_line is a rate over enrolled-provider rows, not an inverse-weighted total.",
+    "who_* tables group billing NPIs into organizations via the entity layer: uniform rules (government keys + calibrated heuristics) plus a hand-verified curated overlay with per-row provenance; families as-of 2026-06; rankings depend on grouping and the exhibit states so.",
+    "who_race_monthly.gap_flag marks entity-months below 20% of the entity's own median month \u2014 state submission gaps (e.g. one agency loses most billing NPIs for exactly one state fiscal year), never program events. trailing12_M spans containing gap months are unreliable; runout_flag marks 2024-11/12 claims-runout truncation."
+  ]
+}
