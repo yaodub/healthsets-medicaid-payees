@@ -134,6 +134,10 @@ export function AboutHealthsets() {
         first public piece; the code and data for it live at{" "}
         <a href="https://github.com/yaodub/healthsets-medicaid-payees">
           github.com/yaodub/healthsets-medicaid-payees
+        </a>. The story of the project, and of the experiment behind this
+        page, is in{" "}
+        <a href="https://yaodub.com/blog/making-public-healthcare-data-public/">
+          the write-up
         </a>.
       </p>
     </div>
